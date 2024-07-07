@@ -1,0 +1,26 @@
+<!doctype html />
+<html>
+<head>
+<style>
+#text {
+	height: 200px;
+	width:  400px;
+}
+</style>
+</head>
+<body>
+<textarea id="text"></textarea><br/>
+<a href="http://itstep.org">IT Step</a>
+<script>
+window.onbeforeunload =
+	function(e) {
+		if(text.value.length > 0) {
+		var msg = 'Text not saved';
+		e.returnValue = msg;
+		return msg;
+		}
+		return null;
+	}
+</script>
+</body>
+</html>

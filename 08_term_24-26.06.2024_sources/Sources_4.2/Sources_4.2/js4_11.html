@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>Mouse events</title>
+</head>
+<body>
+  X: <span id="coordX"></span><br>
+  Y: <span id="coordY"></span>
+  <script>
+    document.onmousemove =
+	  function(e){
+	    coordX.innerHTML = e.pageX;
+	    coordY.innerHTML = e.pageY;
+	  }
+	document.onmousedown =
+	  function(){
+		coordX.style.fontSize = 
+		coordY.style.fontSize = "x-large";
+	  }
+	document.onmouseup =
+	  function(){
+		coordX.style.fontSize = 
+		coordY.style.fontSize = "medium";
+	  }
+  </script>
+</body>
+</html>

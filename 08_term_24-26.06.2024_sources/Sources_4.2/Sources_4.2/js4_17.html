@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+<head>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    
+  </style>
+</head>
+<body>
+  <ul>
+    <li><a href="js4-12.html">Drag-and-Drop basics</a></li>
+    <li><a href="js4-13.html">Adding DOM nodes</a></li>
+    <li><a href="js4-14.html">Adding and removing DOM nodes</a></li>
+    <li><a href="js4-15.html">Drag-and-Drop list ordering</a></li>
+  </ul>
+  <input type="button" value="Get links" onclick="getLinks()" /><br/>
+  Apply new style:<br/>
+  <input type="radio" name="styler" onclick="changeStyle(1)" /> style1 <br/>
+  <input type="radio" name="styler" onclick="changeStyle(2)" /> style2 <br/>
+  <script>
+    function getLinks() {
+	  var str = "";
+	  var links = document.links;
+	  for(link of links)
+	    str += link.innerText + "(" + link.href + ")\n" ;
+	  alert(str);
+	}
+	
+    function changeStyle(num) {
+	  var styleLink = document.getElementsByTagName("LINK")[0];
+	  document.head.removeChild(styleLink);
+	  styleLink = document.createElement("LINK");
+	  styleLink.href = "style"+num+".css";
+	  styleLink.rel = "stylesheet";
+	  document.head.appendChild(styleLink);
+	}
+  </script>
+</body>
+</html>

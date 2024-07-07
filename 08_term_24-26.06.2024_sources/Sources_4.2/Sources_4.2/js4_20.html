@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+<head>
+  <title>Selection demo</title>
+  <style>
+    #copyContainer {
+	  position:absolute;
+	  left:-1000px
+	}
+	textarea {
+	  height:100px;
+	  width: 300px;
+	}
+  </style>
+</head>
+<body>
+  Select any part of this page and copy it.<br>
+  Paste it in any other program or try to paste here:<br>
+  <textarea></textarea>
+  <div id="copyContainer"></div>
+  <script>
+    document.addEventListener('copy', copyHandler);
+	var storedRange = document.createRange();
+    function copyHandler() {
+	  var sel = document.getSelection();
+	  storedRange.setStart(sel.anchorNode,sel.anchorOffset);
+	  storedRange.setEnd(sel.focusNode,sel.focusOffset);
+	  var txt = sel.toString() + " (Copied from js4_20.html)";
+	  copyContainer.innerHTML = txt;
+	  sel.selectAllChildren(copyContainer);
+	  
+	  setTimeout(function(){
+	    var sel = document.getSelection();
+		sel.removeAllRanges();
+        sel.addRange(storedRange)
+	  },100);
+	}
+  </script>
+</body>
+</html>

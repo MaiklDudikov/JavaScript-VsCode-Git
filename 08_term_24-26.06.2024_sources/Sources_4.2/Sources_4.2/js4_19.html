@@ -1,0 +1,31 @@
+<!doctype html>
+<html>
+<head>
+  <title>Selection demo</title>
+</head>
+<body>
+  <input type="checkbox"/>Mark<input type="checkbox"/> selection<input type="checkbox"/> ranges<input type="checkbox"/> by<input type="checkbox"/>
+  checking<input type="checkbox"/> boxes<input type="checkbox"/> between<input type="checkbox"/> the<input type="checkbox"/> words<input type="checkbox"/>
+  <br>
+  <input type="button" value="Done" onclick="makeSelection()"/>
+  <p id="out"></p>
+  <script>
+    function makeSelection() {
+      var checkedBoxes = document.querySelectorAll("[type='checkbox']:checked");
+	  if(checkedBoxes.length != 2) {
+        out.innerHTML = "You should check exactly 2 boxes: start and finish of selection";
+		return;
+	  }
+	  var range = document.createRange();
+	  range.setStartAfter(checkedBoxes[0]);
+	  range.setEndBefore(checkedBoxes[1]);
+	  
+	  var span = document.createElement("SPAN");
+	  span.style.backgroundColor = 'aqua';
+	  range.surroundContents(span);
+	  
+	  out.innerHTML = "Selected text:<br>" + range.toString();
+	}
+  </script>
+</body>
+</html>

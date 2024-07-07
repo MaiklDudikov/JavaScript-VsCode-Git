@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+<head>
+</head>
+<body>
+  <ul id='list'>
+  <li>Item 1</li>
+  <li>Item 2</li>
+  <li>Item 3</li>
+  <li>Item 4</li>
+  </ul>
+  <button onclick="addItem()">Add item</button>
+  <button onclick="removeItem()">Remove second item</button>
+  <button onclick="insertItem()">Insert item</button>
+  <script>
+    function addItem(){
+	  var newItem = document.createElement('li');
+	  newItem.innerText = "New item";
+	  list.appendChild(newItem);       
+    }
+	function removeItem(){
+	  var n = 0;
+	  var element2 = false;
+	  for(var element of list.childNodes){
+	    if(element.tagName == "LI") n++;
+		if(n==2) {
+		  element2 = element;
+		  break;
+		}
+	  }
+	  if(element2) list.removeChild(element2);
+	  
+	}
+	function insertItem(){
+	  var firstItem = list.childNodes[0];
+	  var newItem = document.createElement('li');
+	  newItem.innerText = "New item";
+	  list.insertBefore(newItem, firstItem);
+	}
+    </script>
+</body>
+</html>

@@ -1,0 +1,8 @@
+.movable-block {
+    width: 100px;
+    height: 100px;
+    background-color: lightblue;
+    position: absolute;
+    top: 50px;
+    left: 50px;
+}

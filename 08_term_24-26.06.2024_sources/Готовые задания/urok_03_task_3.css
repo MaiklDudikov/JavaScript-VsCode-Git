@@ -1,0 +1,17 @@
+.movable-block {
+    width: 100px;
+    height: 100px;
+    background-color: lightgreen;
+    position: absolute;
+    top: 50px;
+    left: 50px;
+    margin-right: 10px;
+}
+
+#middleBlock {
+    left: 200px;
+}
+
+#rightBlock {
+    left: 350px;
+}

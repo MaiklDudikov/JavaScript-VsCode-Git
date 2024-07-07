@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Запрет выделения текста и контекстного меню</title>
+    <style>
+        body {
+            user-select: none;
+        }
+    </style>
+</head>
+<body>
+    <p>Это пример текста на странице. Попробуйте выделить его или вызвать контекстное меню.</p>
+
+    <script>
+        document.addEventListener('contextmenu', function(event) {
+            event.preventDefault();
+        });
+    </script>
+</body>
+</html>

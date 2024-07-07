@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+<head>
+  <title>Selection demo</title>
+</head>
+<body onkeypress="keyHandler(event)">
+  <h1>Text selection demo</h1>
+  <p>If you find some mistakes on pagge<br>
+    <i>selectt them and press ctrl-Enter</i></p>
+  <p id="out"></p>
+  <script>
+    function keyHandler(e) {
+	  if(e.ctrlKey && (e.key=="Enter" || e.code=="Enter")){
+	    var sel = document.getSelection();
+	    var msg = "";
+		msg += "Selection starts at " + sel.anchorOffset + " symbol of node <br>";
+		msg += "<b>" + sel.anchorNode.data + "</b><br>";
+		msg += "Selection ends at " + sel.focusOffset + " symbol of node <br>";
+		msg += "<b>" + sel.focusNode.data + "</b><br>";
+		msg += "selected string is: <b>" + sel.toString() + "</b>";
+		
+		out.innerHTML = msg;
+	  }
+	}
+  </script>
+</body>
+</html>

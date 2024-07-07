@@ -1,0 +1,38 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f0f0f0;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: repeat(3, 100px);
+    grid-template-rows: repeat(2, 100px);
+    gap: 10px;
+}
+
+.block {
+    width: 100px;
+    height: 100px;
+    background-color: #ccc;
+}
+
+#block1 {
+    background-color: green;
+}
+
+#block2 {
+    background-color: yellow;
+}
+
+#block3 {
+    background-color: red;
+}
+
+#bottom-block {
+    grid-column: span 3;
+}

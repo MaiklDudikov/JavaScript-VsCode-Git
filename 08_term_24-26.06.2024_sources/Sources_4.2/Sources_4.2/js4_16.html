@@ -1,0 +1,63 @@
+<!doctype html>
+<html>
+<head>
+  <style>
+    div, p {
+	  border:  1px solid navy;
+	  display: inline-block;
+	  height:  60px;
+	  margin:  10px;
+	  padding-top: 40px;
+	  text-align: center;
+	  width:   100px;
+	}
+	.c1 {
+	  background: #eee;
+	}
+	button {
+	  margin-left: 25px;
+	  margin-top:  30px;
+	  width: 90px;
+	}
+  </style>
+</head>
+<body>
+  <div id="d1" class="c1" name="n1">d1, c1, n1</div>
+  <div id="d2" class="c2" name="n1">d2, c2, n1</div>
+  <div id="d3" class="c1 c2">d3, c1 c2</div>
+  <p id="p1" class="c1">p1, c1</p>
+  <p id="p2" class="c2" name="n1">p2, c2, n1</p>
+  <br>
+  <button onclick="selD1()">id = d1</button>
+  <button onclick="selC1()">class = c1</button>
+  <button onclick="selP()">tag = P</button>
+  <button onclick="selN1()">name = n1</button>  
+  <button onclick="clr()">Clear</button>
+  <script>
+    function selD1() {
+	  var elem = document.getElementById("d1");
+	  elem.style.backgroundColor = "#cfc";
+	}
+	function selC1() {
+	  var elems = document.getElementsByClassName("c1");
+	  for(elem of elems)
+	    elem.style.backgroundColor = "#fcc";
+	}
+	function selP() {
+	  var elems = document.getElementsByTagName("p");
+	  for(elem of elems)
+	    elem.style.backgroundColor = "#ccf";
+	}
+	function selN1() {
+	  var elems = document.getElementsByName("n1");
+	  for(elem of elems)
+	    elem.style.backgroundColor = "#bef";
+	}
+	function clr() {
+	  var elems = document.querySelectorAll("div,p");
+	  for(elem of elems)
+	    elem.style.backgroundColor = "#eee";
+	}
+  </script>
+</body>
+</html>

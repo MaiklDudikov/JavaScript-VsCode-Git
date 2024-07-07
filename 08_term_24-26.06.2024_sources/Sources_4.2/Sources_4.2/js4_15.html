@@ -1,0 +1,92 @@
+<!doctype html>
+<html>
+<head>
+  <style>
+    body{
+	  position: relative;
+	}
+    .item, .phantom {
+	  height: 30px;
+	  width:  300px;
+	}
+	.phantom{
+	  position: absolute;
+	}
+  </style>
+</head>
+<body>
+  <ol id='list'>
+  <li class='item' style='background-color:gold' ></li>
+  <li class='item' style='background-color:red'  ></li>
+  <li class='item' style='background-color:green'></li>
+  <li class='item' style='background-color:blue' ></li>
+  </ol>
+  <script>
+    var draggedElement = false;
+	var phantomElement = false;
+	
+    document.onmousedown = function(e){
+		e.preventDefault();
+        var clickedElement = document.elementFromPoint(e.clientX,e.clientY);
+        if(clickedElement.className.indexOf('item') > -1){
+            clickedElement.style.opacity = '0.5';
+            draggedElement  =  clickedElement;
+        }
+    }
+	
+    document.onmouseup = function(e){
+        if(draggedElement){
+            draggedElement.style.opacity = '1';
+            draggedElement = false;
+        }
+        if(phantomElement){
+            document.body.removeChild(phantomElement);
+            phantomElement = false;
+        }
+    }
+	
+    document.onmousemove = function(e){
+        if(draggedElement){
+            if(!phantomElement){
+                phantomElement = document.createElement('div');
+                phantomElement.style.backgroundColor = draggedElement.style.backgroundColor;
+                phantomElement.style.left = e.pageX-draggedElement.offsetWidth/2 + 'px';
+                phantomElement.style.top = e.pageY-draggedElement.offsetHeight/2 + 'px';
+                phantomElement.className = "phantom";
+                document.body.appendChild(phantomElement);
+            }
+            else{
+                phantomElement.style.left = e.pageX-phantomElement.offsetWidth/2 + 'px';
+                phantomElement.style.top  = e.pageY-phantomElement.offsetHeight/2 + 'px';
+				
+                phantomElement.style.zIndex = '-1';
+                var lowerElement = document.elementFromPoint(e.clientX, e.clientY);
+                phantomElement.style.zIndex = '1';
+                
+                if(lowerElement != null 
+				&& lowerElement != draggedElement
+				&& lowerElement.className.indexOf('item')>-1){
+                    if(lowerElement == window.list.lastChild 
+					&& e.pageY > (lowerElement.offsetTop + lowerElement.offsetHeight/2)){
+                            window.list.removeChild(draggedElement);
+                            window.list.appendChild(draggedElement);
+					}
+					else{
+						if(e.pageY > (lowerElement.offsetTop + lowerElement.offsetHeight/2)){
+							if(lowerElement.previousSibling == draggedElement){ 
+							  window.list.removeChild(draggedElement);
+							  window.list.insertBefore(draggedElement,lowerElement.nextSibling);
+							}
+						}
+						else {
+						  window.list.removeChild(draggedElement);
+						  window.list.insertBefore(draggedElement,lowerElement);
+						}
+					}
+                }
+            }
+        }
+    }
+    </script>
+</body>
+</html>
