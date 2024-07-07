@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Список статей</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .article {
+            margin-bottom: 20px;
+        }
+        #scrollToTopButton {
+            display: none;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="article">Статья 1</div>
+    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quibusdam eum perspiciatis ipsam corrupti numquam dicta corporis possimus, esse voluptatem eligendi enim, in quam soluta porro quis. Fugit quis quam, alias. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quibusdam eum perspiciatis ipsam corrupti numquam dicta corporis possimus, esse voluptatem eligendi enim, in quam soluta porro quis. Fugit quis quam, alias.</p>
+
+    <div class="article">Статья 2</div>
+    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quibusdam eum perspiciatis ipsam corrupti numquam dicta corporis possimus, esse voluptatem eligendi enim, in quam soluta porro quis. Fugit quis quam, alias. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quibusdam eum perspiciatis ipsam corrupti numquam dicta corporis possimus, esse voluptatem eligendi enim, in quam soluta porro quis. Fugit quis quam, alias. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quibusdam eum perspiciatis ipsam corrupti numquam dicta corporis possimus, esse voluptatem eligendi enim, in quam soluta porro quis. Fugit quis quam, alias. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quibusdam eum perspiciatis ipsam corrupti numquam dicta corporis possimus, esse voluptatem eligendi enim, in quam soluta porro quis. Fugit quis quam, alias.</p>
+
+    <div class="article">Статья 3</div>
+    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quibusdam eum perspiciatis ipsam corrupti numquam dicta corporis possimus, esse voluptatem eligendi enim, in quam soluta porro quis. Fugit quis quam, alias. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quibusdam eum perspiciatis ipsam corrupti numquam dicta corporis possimus, esse voluptatem eligendi enim, in quam soluta porro quis. Fugit quis quam, alias.</p>
+
+    <div class="article">Статья 4</div>
+    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quibusdam eum perspiciatis ipsam corrupti numquam dicta corporis possimus, esse voluptatem eligendi enim, in quam soluta porro quis. Fugit quis quam, alias. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quibusdam eum perspiciatis ipsam corrupti numquam dicta corporis possimus, esse voluptatem eligendi enim, in quam soluta porro quis. Fugit quis quam, alias. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quibusdam eum perspiciatis ipsam corrupti numquam dicta corporis possimus, esse voluptatem eligendi enim, in quam soluta porro quis. Fugit quis quam, alias.</p>
+
+    <div class="article">Статья 5</div>
+    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quibusdam eum perspiciatis ipsam corrupti numquam dicta corporis possimus, esse voluptatem eligendi enim, in quam soluta porro quis. Fugit quis quam, alias. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quibusdam eum perspiciatis ipsam corrupti numquam dicta corporis possimus, esse voluptatem eligendi enim, in quam soluta porro quis. Fugit quis quam, alias. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quibusdam eum perspiciatis ipsam corrupti numquam dicta corporis possimus, esse voluptatem eligendi enim, in quam soluta porro quis. Fugit quis quam, alias.</p>
+
+    <button id="scrollToTopButton" onclick="scrollToTop()">Вверх</button>
+
+    <script>
+        window.addEventListener('scroll', function() {
+            const scrollToTopButton = document.getElementById('scrollToTopButton');
+            if (window.scrollY > 100) {
+                scrollToTopButton.style.display = 'block';
+            } else {
+                scrollToTopButton.style.display = 'none';
+            }
+        });
+
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>

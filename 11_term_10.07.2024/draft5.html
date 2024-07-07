@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Меню с выпадающими списками</title>
+    <style>
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            margin: 10px 0;
+        }
+        .submenu {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <ul id="menu">
+        <li>
+            Элемент 1
+            <ul class="submenu">
+                <li>Подменю 1-1</li>
+                <li>Подменю 1-2</li>
+            </ul>
+        </li>
+        <li>
+            Элемент 2
+            <ul class="submenu">
+                <li>Подменю 2-1</li>
+                <li>Подменю 2-2</li>
+            </ul>
+        </li>
+    </ul>
+
+    <script>
+        document.querySelectorAll('#menu > li').forEach(function(menuItem) {
+            menuItem.addEventListener('click', function() {
+                this.querySelector('.submenu').style.display = 
+                    this.querySelector('.submenu').style.display === 'block' ? 'none' : 'block';
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Кнопка Like</title>
+</head>
+<body>
+    <button id="likeButton">Like</button>
+    <p>Лайков: <span id="likeCount">0</span></p>
+
+    <script>
+        let likeCount = 0;
+        const likeButton = document.getElementById('likeButton');
+        const likeCountSpan = document.getElementById('likeCount');
+
+        likeButton.addEventListener('click', function() {
+            likeCount++;
+            likeCountSpan.textContent = likeCount;
+        });
+    </script>
+</body>
+</html>
