@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Калькулятор</title>
+    <style>
+        #calculator {
+            width: 200px;
+            margin: 50px auto;
+            font-family: Arial, sans-serif;
+        }
+        #result {
+            width: 100%;
+            height: 50px;
+            font-size: 24px;
+            text-align: right;
+            margin-bottom: 10px;
+            padding: 10px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            background-color: #fafafa;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        td {
+            width: 25%;
+            padding: 15px;
+            text-align: center;
+            border: 1px solid #ccc;
+            background-color: #e0e0e0;
+            cursor: pointer;
+            font-size: 20px;
+            transition: background-color 0.3s;
+        }
+        td:hover {
+            background-color: #d0d0d0;
+        }
+    </style>
+</head>
+<body>
+    <div id="calculator">
+        <div id="result">0</div>
+        <table>
+            <tr>
+                <td onclick="insert(7)">7</td>
+                <td onclick="insert(8)">8</td>
+                <td onclick="insert(9)">9</td>
+                <td onclick="insert('+')">+</td>
+            </tr>
+            <tr>
+                <td onclick="insert(4)">4</td>
+                <td onclick="insert(5)">5</td>
+                <td onclick="insert(6)">6</td>
+                <td onclick="insert('-')">-</td>
+            </tr>
+            <tr>
+                <td onclick="insert(1)">1</td>
+                <td onclick="insert(2)">2</td>
+                <td onclick="insert(3)">3</td>
+                <td onclick="insert('*')">*</td>
+            </tr>
+            <tr>
+                <td onclick="insert(0)">0</td>
+                <td onclick="calculate()">=</td>
+                <td onclick="clearResult()">C</td>
+                <td onclick="insert('/')">/</td>
+            </tr>
+        </table>
+    </div>
+
+    <script>
+        let resultField = document.getElementById('result');
+
+        function insert(num) {
+            if (resultField.textContent === '0') {
+                resultField.textContent = num;
+            } else {
+                resultField.textContent += num;
+            }
+        }
+
+        function clearResult() {
+            resultField.textContent = '0';
+        }
+
+        function calculate() {
+            try {
+                resultField.textContent = eval(resultField.textContent);
+            } catch (error) {
+                resultField.textContent = 'Ошибка';
+            }
+        }
+    </script>
+</body>
+</html>
