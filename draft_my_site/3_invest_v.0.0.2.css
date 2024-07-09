@@ -2,10 +2,15 @@ body {
     margin: 20px 0px;
     font-family: Arial, sans-serif;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
-    min-height: 100vh;
     background-color: #f0f0f0;
+}
+
+.buttons {
+    margin: 20px 0;
+    display: flex;
+    gap: 10px;
 }
 
 .container {
@@ -22,7 +27,7 @@ body {
     overflow: hidden;
     background-color: #fff;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    height: 200px;
+    height: 100px;
 }
 
 .left {
@@ -60,6 +65,16 @@ body {
     background-color: #77dd77;
 }
 
+.examples {
+    width: 95%;
+    border-radius: 5px;
+    background: #9694e8;
+    font-weight: bolder;
+    padding: 5px;
+    box-sizing: border-box;
+    text-align: center;
+}
+
 /* Медиа-запрос для мобильных устройств */
 @media (max-width: 768px) {
     .container {
@@ -78,5 +93,8 @@ body {
         width: 100%;
         height: 100px; /* Пример высоты, отрегулируйте по мере необходимости */
         border-bottom: solid black;
+    }
+    .buttons {
+        justify-content: center;
     }
 }
