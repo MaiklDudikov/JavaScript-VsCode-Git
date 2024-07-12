@@ -1,0 +1,34 @@
+body, html {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: green;
+}
+
+#field {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-color: green;
+}
+
+.field-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+#ball {
+    width: 100px;
+    height: 100px;
+    background-image: url('ball.png');
+    background-size: cover;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: top 1.3s, left 1.3s;
+}

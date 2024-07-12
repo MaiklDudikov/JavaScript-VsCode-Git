@@ -1,0 +1,21 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+#book-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+#book-list li {
+    padding: 10px;
+    cursor: pointer;
+}
+
+#book-list li.selected {
+    background-color: orange;
+}

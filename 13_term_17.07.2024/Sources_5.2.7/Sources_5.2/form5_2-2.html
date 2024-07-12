@@ -1,0 +1,92 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Phone book</title>
+    <style>
+        body{font-family:"Courier New", Courier, monospace;}
+    </style>
+</head>
+<body>
+    <h2>Add new contact</h2>
+        <form method='GET'>
+        <b>Name </b><input type="text" placeholder="Enter name" name="name" /><br/><br/>
+        <input type="submit" value="Save"/>
+        <input type="button" value="One more phone" onclick="add_click()"  style="margin-left:50px" />
+        <br/><br/>
+        Phone number <input type="text" name="phone" id="ph" placeholder="Enter phone number" />
+            Phone type <select name="type">
+                    <option value="1" selected>Cellular</option>
+                    <option value="2">Home</option>
+                    <option value="3">Work</option>
+                </select>
+            Priority    <input type="radio" name="main" value="1" checked />
+    </form>
+	<br>
+	<button onclick="showElements()">Elements</button>
+	<button onclick="showChildren()">Children</button>
+	<button onclick="showNodes()">Nodes</button>
+	<p id="out"></p>
+    
+    <script>
+        function add_click(){
+            if (typeof phoneCounter == 'undefined') phoneCounter = 1;
+            phoneCounter++;
+            var f = document.forms[0];
+            
+            var b = document.createElement('br');
+            f.appendChild(b);
+            
+            var t = document.createTextNode('Phone number ');
+            f.appendChild(t);
+            
+            var phoneInput = document.createElement('input');
+            phoneInput.type = 'text';
+            phoneInput.name = 'phone' + phoneCounter;
+            phoneInput.placeholder = 'Enter phone number';
+            f.appendChild(phoneInput);
+            
+            var t2 = document.createTextNode(' Phone type ');
+            f.appendChild(t2);
+            
+            var selector = f.elements['type'];
+            var newSelector = selector.cloneNode(true); console.log(newSelector);
+            newSelector.name = 'type' + phoneCounter;
+            f.appendChild(newSelector);
+            
+            var t3 = document.createTextNode(' Priority ');
+            f.appendChild(t3);
+            
+            var mainRadio = document.createElement('input');
+            mainRadio.type = 'radio';
+            mainRadio.name = 'main';
+            mainRadio.value = phoneCounter;
+            f.appendChild(mainRadio);
+            
+        }
+		
+		function showNodes(){
+			var n = document.forms[0].childNodes, p = document.getElementById("out");
+			for ( var i=0; i<n.length; i++){
+				p.innerHTML += (i+1) + ". " + n[i].nodeName + ". " + n[i].textContent + "<br>"
+			}
+		}
+		
+		function showElements(){
+			var e = document.forms[0].elements, p = document.getElementById("out");
+			p.innerHTML = "";
+			for ( var i=0; i<e.length; i++){
+				p.innerHTML += e[i].tagName + " - " + e[i].name + " - " + e[i].value + "<br>"
+			}
+		}
+		
+		function showChildren(){
+			var c = document.forms[0].children, p = document.getElementById("out");
+			p.innerHTML = "";
+			for ( var i=0; i<c.length; i++){
+				p.innerHTML += (i+1) + ". " + c[i].tagName + "<br>"
+			}
+		}
+    </script>
+</body>
+</html>

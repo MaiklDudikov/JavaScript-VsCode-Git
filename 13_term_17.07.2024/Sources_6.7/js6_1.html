@@ -1,0 +1,38 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Registration form</title>
+	<style>
+		#regForm b{
+			display:inline-block;
+			padding-top:5px;
+			width:100px;
+		}
+		#regForm input[type="submit"]{
+			margin: 15px 150px;
+		}
+	</style>
+</head>
+<body>
+	<form method="GET" id="regForm" onsubmit="return checkForm()" >
+	<b>First name:</b>  <input type="text" id="name1" name="name1" required /><br/>
+	<b>Second name:</b> <input type="text" id="name2" name="name2" required /><br/>
+	<b>Login:</b> <input type="text" id="login" name="login" required /><br/>
+	<b>Password:</b> <input type="password" id="pas1" name="pass" required /><br/>
+	<b>Retype:</b> <input type="password" id="pas2" required /><br/>
+	<b>Email:</b> <input type="email" id="email" name="email" required /><br/>
+	<b>Cellular:</b> <input type="phone" id="phone" name="phone" required /><br/>
+	<b>Code:</b> <input type="number" id="code" name="code" required /><br/>
+	<b></b><label><input type="checkbox" name="accept" required /> I accept the rules</label><br/>
+	<input type="submit" value="Register" />
+	</form>
+
+<script>
+function checkForm(){
+	    alert("Analyzing...");
+    return false;
+}
+</script>
+</body>
+</html>

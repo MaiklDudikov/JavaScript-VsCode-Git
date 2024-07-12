@@ -1,0 +1,87 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Registration form</title>
+	<style>
+		#regForm b{
+			display:inline-block;
+			padding-top:5px;
+			width:100px;
+		}
+		#regForm input[type="submit"]{
+			margin: 15px 150px;
+		}
+	</style>
+</head>
+<body>
+	<form method="GET" id="regForm" onsubmit="return checkForm()" >
+	<b>First name:</b>  <input type="text" id="name1" name="name1" required /><br/>
+	<b>Second name:</b> <input type="text" id="name2" name="name2" required /><br/>
+	<b>Login:</b> <input type="text" id="login" name="login" required /><br/>
+	<b>Password:</b> <input type="password" id="pas1" name="pass" required /><br/>
+	<b>Retype:</b> <input type="password" id="pas2" required /><br/>
+	<b>Email:</b> <input type="email" id="email" name="email" required /><br/>
+	<b>Cellular:</b> <input type="phone" id="phone" name="phone" required /><br/>
+	<b>Code:</b> <input type="number" id="code" name="code" required /><br/>
+	<b></b><label><input type="checkbox" name="accept" id="accept" required /> I accept the rules</label><br/>
+	<input type="submit" value="Register" />
+	</form>
+
+<script>
+function checkForm(){
+	var n1 = document.getElementById("name1").value;
+	var t1 = /^[A-Z][a-z]*(-[A-Z][a-z]*)*$/;
+	if(!t1.test(n1)){
+		alert("First name is incorrect");
+		return false;
+	}
+	var n2 = document.getElementById("name2").value;
+	if(!t1.test(n2)){
+		alert("Second name is incorrect");
+		return false;
+	}
+	var p1 = document.getElementById("pas1").value;
+	if(! /\d/.test(p1)){
+		alert("Password has no digit");
+		return false;
+	}
+	if(! /[A-Z]/.test(p1)){
+		alert("Password has no big letters");
+		return false;
+	}
+	if(! /[a-z]/.test(p1)){
+		alert("Password has no small letters");
+		return false;
+	}
+	var p2 = document.getElementById("pas2").value;
+	if(p1 != p2){
+		alert("Passwords mismatch");
+		return false;
+	}
+	var eMail = document.getElementById("email").value;
+	var te = /^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/ ;
+	if(! te.test(eMail) ){
+		alert("e-Mail is incorrect");
+		return false;
+	}
+	var cellular = document.getElementById("phone").value;
+	if(! /^\+?\d{6,12}$/.test(cellular) ){
+		alert("Phone is incorrect");
+		return false;
+	}
+	var cod = document.getElementById("code").value;
+	if(/\D/.test(cod) ){
+		alert("Code is incorrect");
+		return false;
+	}
+	var agree = document.getElementById("accept").value;
+	if(agree!="on"){
+		alert("You should accept rules");
+		return false;
+	}
+	return true;
+}
+</script>
+</body>
+</html>
