@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Палитра цветов</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Создать новый цвет</h1>
+        <form id="colorForm">
+            <label for="colorName">Название цвета (eng A-Z, a-z) :</label>
+            <input type="text" id="colorName" required>
+
+            <label for="colorType">Тип :</label>
+            <select id="colorType">
+                <option value="RGB">RGB</option>
+                <option value="RGBA">RGBA</option>
+                <option value="HEX">HEX</option>
+            </select>
+
+            <label for="colorCode">Код цвета (прим. : 154,205,50) :</label>
+            <input type="text" id="colorCode" required>
+
+            <button type="submit">Сохранить</button>
+        </form>
+        <div id="errorMessages"></div>
+        <h2>Все цвета</h2>
+        <div id="colorPalette"></div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

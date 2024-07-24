@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Графический редактор</title>
+    <link rel="stylesheet" href="canvas-styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="toolbar">
+            <label for="shapeSelect">Фигура :</label>
+            <select id="shapeSelect">
+                <option value="rectangle">Прямоугольник</option>
+                <option value="circle">Круг</option>
+            </select>
+
+            <label for="colorSelect">Цвет :</label>
+            <input type="color" id="colorSelect" value="#ff0000">
+        </div>
+        <canvas id="drawingCanvas"></canvas>
+    </div>
+    <script src="canvas-script.js"></script>
+</body>
+</html>
