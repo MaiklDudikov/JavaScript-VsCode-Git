@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <style>
+        form {
+            width: 300px;
+            margin: 20px auto;
+            display: flex;
+            flex-direction: column;
+        }
+        input, textarea {
+            margin: 10px 0;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+<div id="greeting" class="hidden">
+    <h2>Hello, <span id="greet-name"></span></h2>
+    <p>Phone: <span id="greet-phone"></span></p>
+    <p>Email: <span id="greet-email"></span></p>
+    <button id="signout">Sign out</button>
+</div>
+
+<form id="registrationForm">
+    <label>First name: <input type="text" name="firstName" required></label>
+    <label>Last name: <input type="text" name="lastName" required></label>
+    <label>Login: <input type="text" name="login" required></label>
+    <label>Password: <input type="password" name="password" required></label>
+    <label>Confirm password: <input type="password" name="confirmPassword" required></label>
+    <label>Email: <input type="email" name="email" required></label>
+    <label>Phone number: <input type="tel" name="phone" required></label>
+    <label>Code: <input type="text" name="code" required></label>
+    <label><input type="checkbox" name="rules" required> I accept the rules</label>
+    <button type="submit">Register</button>
+</form>
+
+<script>
+    // Регулярные выражения для проверки полей формы
+    const regexCode = /^\d{4,6}$/;
+
+    const form = document.getElementById('registrationForm');
+    const greeting = document.getElementById('greeting');
+
+    const greetName = document.getElementById('greet-name');
+    const greetPhone = document.getElementById('greet-phone');
+    const greetEmail = document.getElementById('greet-email');
+
+    const signoutButton = document.getElementById('signout');
+
+    // Устанавливаем куки
+    function setCookie(name, value, maxAge) {
+        document.cookie = `${name}=${value}; max-age=${maxAge}`;
+    }
+
+    // Получаем куки
+    function getCookie(name) {
+        const cookies = document.cookie.split('; ');
+        for (let cookie of cookies) {
+            let [key, value] = cookie.split('=');
+            if (key === name) return value;
+        }
+        return null;
+    }
+
+    // Удаляем куки
+    function deleteCookie(name) {
+        document.cookie = `${name}=; max-age=0`;
+    }
+
+    // Проверяем наличие куки и показываем приветствие или форму
+    function checkCookies() {
+        const firstName = getCookie('firstName');
+        const lastName = getCookie('lastName');
+        const login = getCookie('login');
+        const email = getCookie('email');
+        const phone = getCookie('phone');
+
+        if (firstName && lastName && login && email && phone) {
+            form.classList.add('hidden');
+            greeting.classList.remove('hidden');
+            greetName.textContent = `${firstName} ${lastName}(${login})`;
+            greetPhone.textContent = phone;
+            greetEmail.textContent = email;
+        }
+    }
+
+    // Обработчик отправки формы
+    form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        const formData = new FormData(form);
+
+        if (!regexCode.test(formData.get('code'))) {
+            alert('Code must be 4 to 6 digits.');
+            return;
+        }
+
+        if (formData.get('password') !== formData.get('confirmPassword')) {
+            alert('Passwords do not match.');
+            return;
+        }
+
+        // Устанавливаем куки на 15 минут
+        setCookie('firstName', formData.get('firstName'), 900);
+        setCookie('lastName', formData.get('lastName'), 900);
+        setCookie('login', formData.get('login'), 900);
+        setCookie('email', formData.get('email'), 900);
+        setCookie('phone', formData.get('phone'), 900);
+
+        checkCookies();
+    });
+
+    // Обработчик выхода
+    signoutButton.addEventListener('click', function () {
+        deleteCookie('firstName');
+        deleteCookie('lastName');
+        deleteCookie('login');
+        deleteCookie('email');
+        deleteCookie('phone');
+
+        greeting.classList.add('hidden');
+        form.classList.remove('hidden');
+    });
+
+    // Проверка куки при загрузке страницы
+    window.addEventListener('load', checkCookies);
+</script>
+
+</body>
+</html>
