@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Прогноз погоды</title>
+    <link rel="stylesheet" href="weather.css">
+</head>
+<body>
+    <header>
+        <h1>Текущая погода</h1>
+        <div class="search">
+            <input type="text" id="cityInput" placeholder="Введите название города">
+            <!-- <button onclick="getWeather()">Поиск</button> -->
+            <button onclick="getWeather()"><img src="search-icon.png" alt="Search"></button> <!--  Добавить иконку поиска -->
+        </div>
+    </header>
+    <main>
+        <section id="weatherToday" class="weather-block">
+            <!-- Блок для информации о текущей погоде -->
+        </section>
+        <section id="hourlyWeather" class="weather-block">
+            <!-- Блок для почасовой информации -->
+        </section>
+    </main>
+    <script src="weather.js"></script>
+</body>
+</html>

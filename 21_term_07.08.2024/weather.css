@@ -1,0 +1,79 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-bottom: 1px solid #ddd;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header h1 {
+    margin: 0;
+    color: #0099cc;
+}
+
+.search {
+    display: flex;
+    align-items: center;
+}
+
+.search input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.search button {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.search img {
+    width: 20px;
+    height: 20px;
+}
+
+main {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+.weather-block {
+    margin: 20px 0;
+}
+
+.weather-block h2 {
+    margin: 0;
+    color: #0099cc;
+}
+
+.weather-block p {
+    margin: 5px 0;
+}
+
+.weather-icon {
+    width: 100px;
+    height: 100px;
+}
+
+.hourly-weather {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.hourly-weather .hourly-item {
+    text-align: center;
+}
