@@ -1,6 +1,6 @@
 function getWeather() {
     const city = document.getElementById('cityInput').value;
-    const apiKey = 'e342e402b4235365f0d325328a99ec4d';
+    const apiKey = 'YOUR_API_KEY';
 
     if (!city) {
         alert('Введите название города');
@@ -35,7 +35,7 @@ function displayWeather(data) {
 }
 
 function getHourlyWeather(lat, lon) {
-    const apiKey = 'e342e402b4235365f0d325328a99ec4d'; // Замените на ваш ключ API
+    const apiKey = 'YOUR_API_KEY'; // Замените на ваш ключ API
     const url = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric&lang=ru`;
 
     fetch(url)
