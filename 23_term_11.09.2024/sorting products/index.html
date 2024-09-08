@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products list</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Products list</h1>
+        <div class="sort-container">
+            <label for="sortType">Type of sort:</label>
+            <select id="sortType">
+                <option value="id">Id</option>
+                <option value="price">Price</option>
+                <option value="name">Name</option>
+            </select>
+            <button id="sortBtn">Sort</button>
+        </div>
+        <div id="products" class="products-list"></div>
+    </div>
+
+    <script src="scripts.js"></script>
+</body>
+</html>
