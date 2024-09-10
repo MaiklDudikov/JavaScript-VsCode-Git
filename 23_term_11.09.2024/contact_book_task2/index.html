@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Книга контактов</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="contacts-container">
+        <div id="contacts-list"></div>
+        <button id="addContactBtn">Добавить контакт</button>
+    </div>
+
+    <div id="modal" class="modal hidden">
+        <div class="modal-content">
+            <label>Имя:</label>
+            <input type="text" id="firstName">
+            <label>Фамилия:</label>
+            <input type="text" id="lastName">
+            <label>Возраст:</label>
+            <input type="number" id="age">
+            <label>Моб.телефон:</label>
+            <input type="text" id="mobilePhone">
+            <label>Дом.телефон:</label>
+            <input type="text" id="homePhone">
+            <label>Telegram:</label>
+            <input type="text" id="telegram">
+            <label>Instagram:</label>
+            <input type="text" id="instagram">
+            <label>Facebook:</label>
+            <input type="text" id="facebook">
+            <label>Viber:</label>
+            <input type="text" id="viber">
+            <label>Linkedin:</label>
+            <input type="text" id="linkedin">
+            <label>Tiktok:</label>
+            <input type="text" id="tiktok">
+            <button id="saveContactBtn">Сохранить</button>
+            <button id="editContactBtn" class="hidden">Редактировать</button>
+            <button id="deleteContactBtn" class="hidden">Удалить</button>
+        </div>
+    </div>
+
+    <script type="module" src="ContactBook.js"></script>
+</body>
+</html>
