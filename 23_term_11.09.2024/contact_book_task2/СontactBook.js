@@ -30,12 +30,12 @@ export class ContactBook {
                     Возраст: ${contact.age}<br>
                     Моб.телефон: ${contact.mobilePhone}<br>
                     Дом.телефон: ${contact.homePhone}<br>
-                    Telegram: ${contact.nicknameTelegram}<br>
-                    Instagram: ${contact.nicknameInstagram}<br>
-                    Facebook: ${contact.nicknameFacebook}<br>
-                    Viber: ${contact.nicknameViber}<br>
-                    Linkedin: ${contact.nicknameLinkedin}<br>
-                    Tiktok: ${contact.nicknameTiktok}
+                    Telegram: ${contact.nicknameTelegram || 'Не указан'}<br>
+                    Instagram: ${contact.nicknameInstagram || 'Не указан'}<br>
+                    Facebook: ${contact.nicknameFacebook || 'Не указан'}<br>
+                    Viber: ${contact.nicknameViber || 'Не указан'}<br>
+                    LinkedIn: ${contact.nicknameLinkedin || 'Не указан'}<br>
+                    TikTok: ${contact.nicknameTiktok || 'Не указан'}
                 </div>
                 <div class="contact-buttons">
                     <button onclick="contactBook.showEditContact(${contact.id})">✏</button>

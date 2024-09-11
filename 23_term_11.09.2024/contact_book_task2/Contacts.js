@@ -1,4 +1,3 @@
-// Contact.js
 export class Contact {
     constructor(id, firstName, lastName, age, mobilePhone, homePhone) {
         this.id = id;
@@ -9,3 +8,4 @@ export class Contact {
         this.homePhone = homePhone || '';
     }
 }
+
