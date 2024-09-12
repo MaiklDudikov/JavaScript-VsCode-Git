@@ -1,4 +1,4 @@
-import { Contact } from './Contacts.js';
+import { Contact } from './modules/Contacts.js';
 
 export class ContactsAndSocialNetworks extends Contact {
     constructor(id, firstName, lastName, age, mobilePhone, homePhone, nicknameTelegram, nicknameInstagram, nicknameFacebook, nicknameViber, nicknameLinkedin, nicknameTiktok) {

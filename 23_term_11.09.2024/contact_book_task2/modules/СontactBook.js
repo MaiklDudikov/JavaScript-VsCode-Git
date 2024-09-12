@@ -1,4 +1,4 @@
-import { ContactsAndSocialNetworks } from './ContactsAndSocialNetworks.js';
+import { ContactsAndSocialNetworks } from './modules/ContactsAndSocialNetworks.js';
 
 export class ContactBook {
     constructor() {
