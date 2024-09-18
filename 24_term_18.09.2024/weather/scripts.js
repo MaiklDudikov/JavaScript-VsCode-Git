@@ -1,6 +1,5 @@
 // OpenWeatherMap API key (получите ваш ключ и замените его здесь)
-// 106ff14aa9b86281abb5240df8b123b1
-const apiKey = 'e342e402b4235365f0d325328a99ec4d';
+const apiKey = 'your_token_api';
 
 document.getElementById('search-btn').addEventListener('click', () => {
     const city = document.getElementById('city-input').value;
