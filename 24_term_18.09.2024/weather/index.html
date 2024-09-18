@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Прогноз погоды</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Current Weather</h1>
+            <div class="search-box">
+                <input type="text" id="city-input" placeholder="Enter city name">
+                <button id="search-btn">Search</button>
+            </div>
+            <p id="error-message" class="hidden"></p>
+        </header>
+
+        <section id="current-weather" class="weather-block hidden">
+            <h2 id="city-name"></h2>
+            <p id="weather-date"></p>
+            <div class="weather-info">
+                <img id="weather-icon" src="" alt="Weather Icon">
+                <h3 id="weather-description"></h3>
+                <h1 id="current-temperature"></h1>
+                <div class="weather-details">
+                    <p>Min temperature: <span id="min-temperature"></span></p>
+                    <p>Max temperature: <span id="max-temperature"></span></p>
+                    <p>Wind speed (km/h): <span id="wind-speed"></span></p>
+                </div>
+            </div>
+        </section>
+
+        <section id="hourly-weather" class="weather-block hidden">
+            <h3>Hourly</h3>
+            <div id="hourly-forecast" class="forecast"></div>
+        </section>
+    </div>
+
+    <script src="scripts.js"></script>
+</body>
+</html>
