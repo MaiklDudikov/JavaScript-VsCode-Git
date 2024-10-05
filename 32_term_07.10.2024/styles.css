@@ -1,0 +1,62 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+}
+
+header {
+    padding: 10px;
+    border-bottom: 2px solid lightgreen;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+}
+
+.menu-toggle {
+    font-size: 30px;
+    cursor: pointer;
+    color: red;
+    border: 2px solid lightgreen;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+nav {
+    position: absolute;
+    top: 50px;
+    right: 10px;
+    background-color: white;
+    border: 1px solid lightgreen;
+    padding: 10px;
+}
+
+nav ul {
+    list-style: none;
+}
+
+nav ul li {
+    margin: 10px 0;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: green;
+    font-weight: bold;
+}
+
+.hidden {
+    display: none;
+}
+
+/* Изменение для мобильного вида */
+@media (max-width: 768px) {
+    nav {
+        width: 150px;
+    }
+}
